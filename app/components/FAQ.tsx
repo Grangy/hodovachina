@@ -61,10 +61,10 @@ export default function FAQ() {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-10 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 md:pb-28 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-3 sm:px-4 md:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24 lg:pb-28 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
       <div className="max-w-6xl mx-auto w-full">
         <motion.h2
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2 sm:px-4"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
           animate={isMobile ? "visible" : undefined}
@@ -74,9 +74,9 @@ export default function FAQ() {
           Частые вопросы
         </motion.h2>
         
-        <div className="flex justify-center mb-8 sm:mb-10 md:mb-12">
+        <div className="flex justify-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <motion.div
-            className="relative w-full max-w-xs h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64"
+            className="relative w-full max-w-[200px] sm:max-w-xs h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56"
             variants={currentImageVariants}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
@@ -92,9 +92,9 @@ export default function FAQ() {
           </motion.div>
         </div>
       </div>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-2.5 sm:space-y-3 md:space-y-4">
           {faqItems.map((item, index) => (
             <motion.div
               key={index}
@@ -107,11 +107,11 @@ export default function FAQ() {
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-3 sm:px-4 md:px-6 py-3 sm:py-3.5 md:py-4 text-left flex items-center justify-between hover:bg-purple-light dark:hover:bg-gray-700 blue:hover:bg-blue-light monochrome:hover:bg-gray-100 transition-colors min-h-[44px]"
+                className="w-full px-3 sm:px-4 md:px-6 py-2.5 sm:py-3 md:py-3.5 lg:py-4 text-left flex items-center justify-between gap-2 sm:gap-3 hover:bg-purple-light dark:hover:bg-gray-700 blue:hover:bg-blue-light monochrome:hover:bg-gray-100 transition-colors min-h-[44px]"
               >
-                <span className="font-semibold text-sm sm:text-base text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark pr-2 sm:pr-4 transition-colors">{item.question}</span>
+                <span className="font-semibold text-xs sm:text-sm md:text-base text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark leading-snug sm:leading-normal flex-1">{item.question}</span>
                 <motion.svg
-                  className="w-5 h-5 text-purple-primary dark:text-purple-light monochrome:text-mono-primary blue:text-blue-primary flex-shrink-0"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-purple-primary dark:text-purple-light monochrome:text-mono-primary blue:text-blue-primary flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -130,7 +130,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-6 pb-4 text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 transition-colors">
+                    <div className="px-3 sm:px-4 md:px-6 py-3 sm:py-4 text-xs sm:text-sm md:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 transition-colors leading-relaxed">
                       {item.answer}
                     </div>
                   </motion.div>
