@@ -1,0 +1,27 @@
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Directions from './components/Directions';
+import Advantages from './components/Advantages';
+import CooperationFormats from './components/CooperationFormats';
+import WorkSteps from './components/WorkSteps';
+import Testimonials from './components/Testimonials';
+import FAQ from './components/FAQ';
+import ContactForm from './components/ContactForm';
+import Footer from './components/Footer';
+
+export default function Home() {
+  return (
+    <div className="min-h-screen bg-white dark:bg-gray-900 blue:bg-blue-light monochrome:bg-white transition-colors">
+      <Header />
+      <Hero />
+      <Directions />
+      <Advantages />
+      <CooperationFormats />
+      <WorkSteps />
+      <Testimonials />
+      <FAQ />
+      <ContactForm />
+      <Footer />
+    </div>
+  );
+}
