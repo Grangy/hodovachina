@@ -12,11 +12,15 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const fadeInVariants: Variants = {
     hidden: { 
       opacity: isMobile ? 1 : 0, // На мобильных сразу видно
+      x: 0,
       y: isMobile ? 0 : 20,
+      scale: 1,
     },
     visible: {
       opacity: 1,
+      x: 0,
       y: 0,
+      scale: 1,
       transition: {
         duration: isMobile ? 0 : 0.8, // На мобильных мгновенно
         ease: 'easeOut',
@@ -28,15 +32,19 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const cardVariants = (index: number): Variants => ({
     hidden: {
       opacity: isMobile ? 1 : 0, // На мобильных сразу видно
-      ...(isMobile ? {} : {
+      ...(isMobile ? {
+        x: 0,
+        y: 0,
+        scale: 1,
+      } : {
         y: 30,
       }),
     },
     visible: {
       opacity: 1,
-      ...(isMobile ? {} : {
-        y: 0,
-      }),
+      x: 0,
+      y: 0,
+      scale: 1,
       transition: {
         duration: isMobile ? 0 : 0.7, // На мобильных мгновенно
         ease: 'easeOut',
@@ -49,15 +57,19 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const listItemVariants = (index: number): Variants => ({
     hidden: {
       opacity: isMobile ? 1 : 0, // На мобильных сразу видно
-      ...(isMobile ? {} : {
+      ...(isMobile ? {
+        x: 0,
+        y: 0,
+        scale: 1,
+      } : {
         y: 20,
       }),
     },
     visible: {
       opacity: 1,
-      ...(isMobile ? {} : {
-        y: 0,
-      }),
+      x: 0,
+      y: 0,
+      scale: 1,
       transition: {
         duration: isMobile ? 0 : 0.6, // На мобильных мгновенно
         ease: 'easeOut',
@@ -70,15 +82,19 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const imageVariants: Variants = {
     hidden: {
       opacity: isMobile ? 1 : 0, // На мобильных сразу видно
-      ...(isMobile ? {} : {
+      ...(isMobile ? {
+        x: 0,
+        y: 0,
+        scale: 1,
+      } : {
         y: 20,
       }),
     },
     visible: {
       opacity: 1,
-      ...(isMobile ? {} : {
-        y: 0,
-      }),
+      x: 0,
+      y: 0,
+      scale: 1,
       transition: {
         duration: isMobile ? 0 : 0.8, // На мобильных мгновенно
         ease: 'easeOut',
