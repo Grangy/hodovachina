@@ -57,8 +57,8 @@ export default function Advantages() {
   const currentVariants = isMobile ? mobileCardVariants : cardVariants;
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 blue:bg-blue-light monochrome:bg-mono-light transition-colors">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 blue:bg-blue-light monochrome:bg-mono-light transition-colors overflow-x-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {advantages.map((advantage, idx) => (
             <motion.div

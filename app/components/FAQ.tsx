@@ -61,8 +61,8 @@ export default function FAQ() {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}

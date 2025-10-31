@@ -31,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" className="overflow-x-hidden">
       <body
-        className={`${roboto.variable} ${manrope.variable} ${dancingScript.variable} antialiased`}
+        className={`${roboto.variable} ${manrope.variable} ${dancingScript.variable} antialiased overflow-x-hidden`}
       >
         <ThemeProvider>
           {children}

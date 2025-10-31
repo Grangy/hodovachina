@@ -26,7 +26,7 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const cardVariants = (index: number): Variants => ({
     hidden: {
       opacity: 0,
-      x: isMobile ? (index % 2 === 0 ? -60 : 60) : 0,
+      x: isMobile ? (index % 2 === 0 ? -40 : 40) : 0,
       y: isMobile ? 0 : 40,
       scale: isMobile ? 0.92 : 0.95,
       filter: 'blur(4px)',
@@ -51,7 +51,7 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const listItemVariants = (index: number): Variants => ({
     hidden: {
       opacity: 0,
-      x: isMobile ? (index % 2 === 0 ? -50 : 50) : -40,
+      x: isMobile ? (index % 2 === 0 ? -30 : 30) : -40,
       scale: 0.96,
     },
     visible: {

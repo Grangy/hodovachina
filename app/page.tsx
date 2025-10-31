@@ -11,17 +11,19 @@ import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 blue:bg-blue-light monochrome:bg-white transition-colors">
-      <Header />
-      <Hero />
-      <Directions />
-      <Advantages />
-      <CooperationFormats />
-      <WorkSteps />
-      <Testimonials />
-      <FAQ />
-      <ContactForm />
-      <Footer />
+    <div className="min-h-screen bg-white dark:bg-gray-900 blue:bg-blue-light monochrome:bg-white transition-colors overflow-x-hidden w-full max-w-full">
+      <div className="w-full max-w-full overflow-x-hidden">
+        <Header />
+        <Hero />
+        <Directions />
+        <Advantages />
+        <CooperationFormats />
+        <WorkSteps />
+        <Testimonials />
+        <FAQ />
+        <ContactForm />
+        <Footer />
+      </div>
     </div>
   );
 }

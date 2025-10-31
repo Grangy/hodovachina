@@ -139,7 +139,7 @@ export default function Hero({ cityData }: HeroProps = {}) {
   };
 
   return (
-    <section className="relative pt-20 sm:pt-24 md:pt-28 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative pt-20 sm:pt-24 md:pt-28 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden overflow-x-hidden w-full">
       {/* Фоновая подложка на весь блок */}
       <div className="absolute inset-0 top-16 sm:top-20 md:top-24 bottom-4 bg-purple-primary dark:bg-gray-800 blue:bg-blue-primary monochrome:bg-mono-hero rounded-3xl mx-4 sm:mx-6 lg:mx-8 transition-colors"></div>
       

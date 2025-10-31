@@ -63,8 +63,8 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-center">
           {/* Content */}
           <div>
