@@ -5,20 +5,20 @@ export const useAnimationVariants = (isMobile: boolean) => {
   const smoothEase: Easing = [0.22, 1, 0.36, 1] as const;
   const gentleEase: Easing = [0.43, 0.13, 0.23, 0.96] as const;
   
-  // НА МОБИЛЬНЫХ: Только простой fade-in без движения и сложных эффектов
+  // НА МОБИЛЬНЫХ: МГНОВЕННОЕ ПОЯВЛЕНИЕ БЕЗ АНИМАЦИЙ (duration: 0)
   // НА ДЕСКТОПЕ: Полные анимации с движением
   
   // Базовые варианты для заголовков
   const fadeInVariants: Variants = {
     hidden: { 
-      opacity: 0,
-      y: isMobile ? 0 : 20, // На мобильных без движения
+      opacity: isMobile ? 1 : 0, // На мобильных сразу видно
+      y: isMobile ? 0 : 20,
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: isMobile ? 0.4 : 0.8, // Быстрее на мобильных
+        duration: isMobile ? 0 : 0.8, // На мобильных мгновенно
         ease: 'easeOut',
       },
     },
@@ -27,8 +27,7 @@ export const useAnimationVariants = (isMobile: boolean) => {
   // Варианты для карточек
   const cardVariants = (index: number): Variants => ({
     hidden: {
-      opacity: 0,
-      // На мобильных только opacity, на десктопе добавляем движение и scale
+      opacity: isMobile ? 1 : 0, // На мобильных сразу видно
       ...(isMobile ? {} : {
         y: 40,
         scale: 0.95,
@@ -41,9 +40,8 @@ export const useAnimationVariants = (isMobile: boolean) => {
         scale: 1,
       }),
       transition: {
-        duration: isMobile ? 0.4 : 0.7, // Быстрее на мобильных
+        duration: isMobile ? 0 : 0.7, // На мобильных мгновенно
         ease: 'easeOut',
-        // Минимальная задержка на мобильных или без задержки
         delay: isMobile ? 0 : index * 0.12,
       },
     },
@@ -52,8 +50,7 @@ export const useAnimationVariants = (isMobile: boolean) => {
   // Варианты для элементов списка
   const listItemVariants = (index: number): Variants => ({
     hidden: {
-      opacity: 0,
-      // На мобильных только opacity
+      opacity: isMobile ? 1 : 0, // На мобильных сразу видно
       ...(isMobile ? {} : {
         x: -40,
         scale: 0.96,
@@ -66,9 +63,8 @@ export const useAnimationVariants = (isMobile: boolean) => {
         scale: 1,
       }),
       transition: {
-        duration: isMobile ? 0.4 : 0.6, // Быстрее на мобильных
+        duration: isMobile ? 0 : 0.6, // На мобильных мгновенно
         ease: 'easeOut',
-        // Без задержки на мобильных
         delay: isMobile ? 0 : index * 0.18,
       },
     },
@@ -77,8 +73,7 @@ export const useAnimationVariants = (isMobile: boolean) => {
   // Варианты для изображений
   const imageVariants: Variants = {
     hidden: {
-      opacity: 0,
-      // На мобильных только opacity
+      opacity: isMobile ? 1 : 0, // На мобильных сразу видно
       ...(isMobile ? {} : {
         scale: 0.88,
       }),
@@ -89,9 +84,9 @@ export const useAnimationVariants = (isMobile: boolean) => {
         scale: 1,
       }),
       transition: {
-        duration: isMobile ? 0.4 : 0.8, // Быстрее на мобильных
+        duration: isMobile ? 0 : 0.8, // На мобильных мгновенно
         ease: 'easeOut',
-        delay: isMobile ? 0 : 0.15, // Без задержки на мобильных
+        delay: isMobile ? 0 : 0.15,
       },
     },
   };
@@ -106,12 +101,14 @@ export const useAnimationVariants = (isMobile: boolean) => {
   };
 };
 
-// Viewport настройки - НЕ блокируем скролл на мобильных
+// Viewport настройки - НА МОБИЛЬНЫХ ОТКЛЮЧАЕМ АНИМАЦИИ ПОЛНОСТЬЮ
 export const getViewportSettings = (isMobile: boolean) => ({
   once: true,
-  // На мобильных положительный margin, чтобы не блокировать скролл
-  margin: isMobile ? '100px' : '-100px',
-  // На мобильных анимация запускается когда элемент полностью виден
-  amount: isMobile ? 0.5 : 0.15,
+  // На мобильных НЕ используем viewport - анимации отключены
+  // На десктопе стандартные настройки
+  ...(isMobile ? {} : {
+    margin: '-100px',
+    amount: 0.15,
+  }),
 });
 

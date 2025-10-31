@@ -37,26 +37,28 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
   };
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           Выберите формат, который подходит вашему бизнесу
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {/* Крупный опт */}
           <motion.div
-            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-6 sm:p-8 rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
             variants={currentCardVariants(0)}
             initial="hidden"
-            whileInView="visible"
-            viewport={viewportSettings}
+            animate={isMobile ? "visible" : undefined}
+            whileInView={isMobile ? undefined : "visible"}
+            viewport={isMobile ? undefined : viewportSettings}
           >
             <div className="text-4xl sm:text-5xl mb-4 text-purple-primary dark:text-purple-primary monochrome:text-mono-primary blue:text-blue-primary flex justify-center md:justify-start">
               <FaBriefcase />
@@ -76,8 +78,8 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             </ul>
             <motion.button
               onClick={scrollToForm}
-              className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 py-3 rounded-lg text-base font-semibold transition-all hover:scale-105 active:scale-95"
-              whileHover={{ scale: 1.02 }}
+              className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold transition-all hover:scale-105 active:scale-95 min-h-[44px]"
+              whileHover={isMobile ? {} : { scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Заказать оптовую поставку
@@ -86,11 +88,12 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
 
           {/* Совместные закупки */}
           <motion.div
-            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-8 rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
             variants={currentCardVariants(1)}
             initial="hidden"
-            whileInView="visible"
-            viewport={viewportSettings}
+            animate={isMobile ? "visible" : undefined}
+            whileInView={isMobile ? undefined : "visible"}
+            viewport={isMobile ? undefined : viewportSettings}
           >
             <div className="text-4xl sm:text-5xl mb-4 text-purple-primary dark:text-purple-primary monochrome:text-mono-primary blue:text-blue-primary flex justify-center md:justify-start">
               <FaHandshake />
@@ -110,8 +113,8 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             </ul>
             <motion.button
               onClick={openWhatsApp}
-              className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 py-3 rounded-lg text-base font-semibold transition-all hover:scale-105 active:scale-95"
-              whileHover={{ scale: 1.02 }}
+              className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 py-3 rounded-lg text-sm sm:text-base font-semibold transition-all hover:scale-105 active:scale-95 min-h-[44px]"
+              whileHover={isMobile ? {} : { scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               Присоединиться к совместной закупке

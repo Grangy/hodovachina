@@ -76,39 +76,41 @@ export default function Directions({ cityData }: DirectionsProps = {}) {
   const currentVariants = isMobile ? mobileCardVariants : cardVariants;
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           {cityData 
             ? `Полный цикл услуг из Китая в ${cityData.name} — от выкупа до белого ввоза`
             : 'Полный цикл услуг из Китая — от выкупа до белого ввоза'}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6 mb-6 sm:mb-8 md:mb-10">
           {directions.map((direction, idx) => (
             <motion.div
               key={idx}
-              className="bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light p-5 sm:p-6 rounded-xl hover:bg-purple-primary dark:hover:bg-purple-primary monochrome:hover:bg-mono-dark blue:hover:bg-blue-primary hover:text-white transition-all duration-300 group cursor-pointer dark:border dark:border-gray-700"
+              className="bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl hover:bg-purple-primary dark:hover:bg-purple-primary monochrome:hover:bg-mono-dark blue:hover:bg-blue-primary hover:text-white transition-all duration-300 group cursor-pointer dark:border dark:border-gray-700"
               variants={currentVariants(idx)}
               initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
+              animate={isMobile ? "visible" : undefined}
+              whileInView={isMobile ? undefined : "visible"}
+              viewport={isMobile ? undefined : viewportSettings}
               whileHover={isMobile ? {} : { y: -5, transition: { duration: 0.2 } }}
             >
-              <div className="text-3xl sm:text-4xl mb-3 group-hover:scale-110 transition-transform text-purple-primary dark:text-white monochrome:text-mono-primary blue:text-blue-primary group-hover:text-white flex justify-center md:justify-start">
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 group-hover:scale-110 transition-transform text-purple-primary dark:text-white monochrome:text-mono-primary blue:text-blue-primary group-hover:text-white flex justify-center md:justify-start">
                 {direction.icon}
               </div>
-              <h3 className="font-bold mb-2 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark group-hover:text-white transition-colors text-base sm:text-lg">
+              <h3 className="font-bold mb-1.5 sm:mb-2 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark group-hover:text-white transition-colors text-sm sm:text-base md:text-lg leading-tight">
                 {direction.title}
               </h3>
               {direction.description && (
-                <p className="text-xs sm:text-sm text-center md:text-left text-gray-600 dark:text-gray-300 group-hover:text-white/90 transition-colors">
+                <p className="text-xs sm:text-sm text-center md:text-left text-gray-600 dark:text-gray-300 group-hover:text-white/90 transition-colors leading-relaxed">
                   {direction.description}
                 </p>
               )}
@@ -117,16 +119,17 @@ export default function Directions({ cityData }: DirectionsProps = {}) {
         </div>
 
         <motion.div
-          className="text-center"
+          className="text-center mt-4 sm:mt-6"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           <motion.button
             onClick={scrollToForm}
-            className="bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-base sm:text-lg font-semibold transition-all hover:scale-105 active:scale-95 w-full sm:w-auto"
-            whileHover={{ scale: 1.05 }}
+            className="bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 sm:px-8 py-3 sm:py-3.5 md:py-4 rounded-lg text-sm sm:text-base md:text-lg font-semibold transition-all hover:scale-105 active:scale-95 w-full sm:w-auto min-h-[44px]"
+            whileHover={isMobile ? {} : { scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             Оставить заявку на подбор решения

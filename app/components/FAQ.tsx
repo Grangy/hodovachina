@@ -61,25 +61,27 @@ export default function FAQ() {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 md:mb-8 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           Частые вопросы
         </motion.h2>
         
-        <div className="flex justify-center mb-8 sm:mb-12">
+        <div className="flex justify-center mb-6 sm:mb-8 md:mb-12">
           <motion.div
-            className="relative w-full max-w-xs h-40 sm:h-48 md:h-56 lg:h-64"
+            className="relative w-full max-w-xs h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64"
             variants={currentImageVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={viewportSettings}
+            animate={isMobile ? "visible" : undefined}
+            whileInView={isMobile ? undefined : "visible"}
+            viewport={isMobile ? undefined : viewportSettings}
           >
             <Image
               src="/images/fuq.png"
@@ -92,19 +94,20 @@ export default function FAQ() {
       </div>
       <div className="max-w-4xl mx-auto">
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqItems.map((item, index) => (
             <motion.div
               key={index}
               className="border border-gray-200 dark:border-gray-700 monochrome:border-gray-300 blue:border-gray-300 rounded-lg overflow-hidden bg-white dark:bg-gray-800 monochrome:bg-white blue:bg-white transition-colors"
               variants={currentListVariants(index)}
               initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
+              animate={isMobile ? "visible" : undefined}
+              whileInView={isMobile ? undefined : "visible"}
+              viewport={isMobile ? undefined : viewportSettings}
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between hover:bg-purple-light dark:hover:bg-gray-700 blue:hover:bg-blue-light monochrome:hover:bg-gray-100 transition-colors"
+                className="w-full px-3 sm:px-4 md:px-6 py-3 sm:py-3.5 md:py-4 text-left flex items-center justify-between hover:bg-purple-light dark:hover:bg-gray-700 blue:hover:bg-blue-light monochrome:hover:bg-gray-100 transition-colors min-h-[44px]"
               >
                 <span className="font-semibold text-sm sm:text-base text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark pr-2 sm:pr-4 transition-colors">{item.question}</span>
                 <motion.svg

@@ -63,28 +63,30 @@ export default function Solutions() {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-8 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           Найдём решение{' '}
-          <span className="font-handwritten text-purple-primary dark:text-purple-light monochrome:text-mono-primary blue:text-blue-primary text-4xl sm:text-5xl">
+          <span className="font-handwritten text-purple-primary dark:text-purple-light monochrome:text-mono-primary blue:text-blue-primary text-3xl sm:text-4xl md:text-5xl">
             под индивидуальный запрос
           </span>
         </motion.h2>
 
         {/* Image */}
         <motion.div
-          className="relative w-full h-48 sm:h-64 lg:h-80 mb-12"
+          className="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-80 mb-8 sm:mb-10 md:mb-12"
           variants={currentImageVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           <Image
             src="/images/individ_reshenie.png"
@@ -94,15 +96,16 @@ export default function Solutions() {
           />
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {solutions.map((solution, idx) => (
             <motion.div
               key={idx}
-              className="bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light p-6 rounded-xl hover:bg-purple-primary dark:hover:bg-purple-primary monochrome:hover:bg-mono-dark blue:hover:bg-blue-primary hover:text-white transition-all duration-300 group cursor-pointer dark:border dark:border-gray-700"
+              className="bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl hover:bg-purple-primary dark:hover:bg-purple-primary monochrome:hover:bg-mono-dark blue:hover:bg-blue-primary hover:text-white transition-all duration-300 group cursor-pointer dark:border dark:border-gray-700"
               variants={currentCardVariants(idx)}
               initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
+              animate={isMobile ? "visible" : undefined}
+              whileInView={isMobile ? undefined : "visible"}
+              viewport={isMobile ? undefined : viewportSettings}
               whileHover={isMobile ? {} : { y: -5, transition: { duration: 0.2 } }}
             >
               <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{solution.icon}</div>

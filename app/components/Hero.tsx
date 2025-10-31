@@ -139,12 +139,12 @@ export default function Hero({ cityData }: HeroProps = {}) {
   };
 
   return (
-    <section className="relative pt-20 sm:pt-24 md:pt-28 pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden overflow-x-hidden w-full">
+    <section className="relative pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-12 sm:pb-16 md:pb-20 lg:pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden overflow-x-hidden w-full">
       {/* Фоновая подложка на весь блок */}
-      <div className="absolute inset-0 top-16 sm:top-20 md:top-24 bottom-4 bg-purple-primary dark:bg-gray-800 blue:bg-blue-primary monochrome:bg-mono-hero rounded-3xl mx-4 sm:mx-6 lg:mx-8 transition-colors"></div>
+      <div className="absolute inset-0 top-12 sm:top-16 md:top-20 lg:top-24 bottom-2 sm:bottom-4 bg-purple-primary dark:bg-gray-800 blue:bg-blue-primary monochrome:bg-mono-hero rounded-2xl sm:rounded-3xl mx-2 sm:mx-4 md:mx-6 lg:mx-8 transition-colors"></div>
       
       <div className="relative max-w-6xl mx-auto z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-center p-4 sm:p-6 md:p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 items-center p-3 sm:p-4 md:p-6 lg:p-8">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0 }}

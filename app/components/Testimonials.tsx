@@ -28,30 +28,32 @@ export default function Testimonials({ cityData }: TestimonialsProps = {}) {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={viewportSettings}
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
+          viewport={isMobile ? undefined : viewportSettings}
         >
           {cityData 
             ? `Нам доверяют клиенты в ${cityData.nameGenitive || cityData.name}`
             : 'Нам доверяют сотни клиентов по всей России'}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {/* Placeholder карточки для отзывов */}
           {[1, 2, 3].map((idx) => (
             <motion.div
               key={idx}
-              className="bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light p-6 rounded-xl dark:border dark:border-gray-700"
+              className="bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl dark:border dark:border-gray-700"
               variants={currentCardVariants(idx)}
               initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
+              animate={isMobile ? "visible" : undefined}
+              whileInView={isMobile ? undefined : "visible"}
+              viewport={isMobile ? undefined : viewportSettings}
             >
               <div className="bg-gray-200 dark:bg-gray-700 h-48 rounded-lg mb-4 flex items-center justify-center">
                 <span className="text-gray-400 dark:text-gray-500 text-sm">Скриншот отзыва</span>
@@ -63,16 +65,17 @@ export default function Testimonials({ cityData }: TestimonialsProps = {}) {
           ))}
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-6 sm:mt-8 md:mt-10 lg:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {/* Placeholder для фото */}
           {[1, 2, 3].map((idx) => (
             <motion.div
               key={idx}
-              className="bg-gray-200 dark:bg-gray-700 h-64 rounded-xl flex items-center justify-center"
+              className="bg-gray-200 dark:bg-gray-700 h-48 sm:h-56 md:h-64 rounded-lg md:rounded-xl flex items-center justify-center"
               variants={currentImageVariants}
               initial="hidden"
-              whileInView="visible"
-              viewport={viewportSettings}
+              animate={isMobile ? "visible" : undefined}
+              whileInView={isMobile ? undefined : "visible"}
+              viewport={isMobile ? undefined : viewportSettings}
             >
               <span className="text-gray-400 dark:text-gray-500 text-sm">Фото заказов / производства</span>
             </motion.div>

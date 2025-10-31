@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa';
 import { CityData } from '../data/cities';
@@ -65,30 +65,39 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
     setIsSubmitting(false);
   };
 
+  const [isMobileState, setIsMobileState] = useState(false);
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobileState(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   return (
-    <section id="contact-form" className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
+    <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
         <motion.h2
-          className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          initial={{ opacity: isMobileState ? 1 : 0, y: isMobileState ? 0 : 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: isMobileState ? 0 : 0.6 }}
         >
           {cityData 
             ? `Оставьте заявку — и мы рассчитаем вашу поставку из Китая в ${cityData.name}`
             : 'Оставьте заявку — и мы рассчитаем вашу поставку из Китая'}
         </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-start">
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            initial={{ opacity: isMobileState ? 1 : 0, x: isMobileState ? 0 : -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: isMobileState ? 0 : 0.6, delay: isMobileState ? 0 : 0.2 }}
           >
           <div className="space-y-6">
             <div>
