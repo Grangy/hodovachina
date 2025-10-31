@@ -37,8 +37,8 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
   };
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
-      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full overflow-hidden">
         <motion.h2
           className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
@@ -53,7 +53,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {/* Крупный опт */}
           <motion.div
-            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors overflow-hidden"
             variants={currentCardVariants(0)}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
@@ -88,7 +88,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
 
           {/* Совместные закупки */}
           <motion.div
-            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors overflow-hidden"
             variants={currentCardVariants(1)}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}

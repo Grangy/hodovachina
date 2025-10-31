@@ -77,8 +77,8 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
   }, []);
 
   return (
-    <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-x-hidden w-full">
-      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
+    <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full overflow-hidden">
         <motion.h2
           className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           initial={{ opacity: isMobileState ? 1 : 0, y: isMobileState ? 0 : 20 }}

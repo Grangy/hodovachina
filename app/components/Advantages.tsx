@@ -57,13 +57,13 @@ export default function Advantages() {
   const currentVariants = isMobile ? mobileCardVariants : cardVariants;
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 blue:bg-blue-light monochrome:bg-mono-light transition-colors overflow-x-hidden w-full">
-      <div className="max-w-6xl mx-auto w-full overflow-x-hidden">
+    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 blue:bg-blue-light monochrome:bg-mono-light transition-colors overflow-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           {advantages.map((advantage, idx) => (
             <motion.div
               key={idx}
-              className="bg-white dark:bg-gray-900 blue:bg-white monochrome:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-sm hover:shadow-md transition-all dark:border dark:border-gray-700 monochrome:border monochrome:border-gray-300"
+              className="bg-white dark:bg-gray-900 blue:bg-white monochrome:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-sm hover:shadow-md transition-all dark:border dark:border-gray-700 monochrome:border monochrome:border-gray-300 overflow-hidden"
               variants={currentVariants(idx)}
               initial="hidden"
               animate={isMobile ? "visible" : undefined}
