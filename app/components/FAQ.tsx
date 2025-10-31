@@ -61,10 +61,10 @@ export default function FAQ() {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
-      <div className="max-w-6xl mx-auto w-full overflow-hidden">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 md:pb-28 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+      <div className="max-w-6xl mx-auto w-full">
         <motion.h2
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 sm:mb-6 md:mb-8 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
           animate={isMobile ? "visible" : undefined}
@@ -74,7 +74,7 @@ export default function FAQ() {
           Частые вопросы
         </motion.h2>
         
-        <div className="flex justify-center mb-6 sm:mb-8 md:mb-12">
+        <div className="flex justify-center mb-8 sm:mb-10 md:mb-12">
           <motion.div
             className="relative w-full max-w-xs h-32 sm:h-40 md:h-48 lg:h-56 xl:h-64"
             variants={currentImageVariants}
@@ -92,7 +92,7 @@ export default function FAQ() {
           </motion.div>
         </div>
       </div>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="space-y-3 sm:space-y-4">
           {faqItems.map((item, index) => (

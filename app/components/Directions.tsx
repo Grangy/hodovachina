@@ -76,10 +76,10 @@ export default function Directions({ cityData }: DirectionsProps = {}) {
   const currentVariants = isMobile ? mobileCardVariants : cardVariants;
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16 md:pb-24 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+    <section className="py-10 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 pb-20 sm:pb-24 md:pb-28 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
       <div className="max-w-6xl mx-auto w-full">
         <motion.h2
-          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 sm:mb-10 md:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
           animate={isMobile ? "visible" : undefined}
@@ -91,7 +91,7 @@ export default function Directions({ cityData }: DirectionsProps = {}) {
             : 'Полный цикл услуг из Китая — от выкупа до белого ввоза'}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-5 lg:gap-6 mb-6 sm:mb-8 md:mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 mb-10 sm:mb-12 md:mb-14">
           {directions.map((direction, idx) => (
             <motion.div
               key={idx}
@@ -103,14 +103,14 @@ export default function Directions({ cityData }: DirectionsProps = {}) {
               viewport={isMobile ? undefined : viewportSettings}
               whileHover={isMobile ? {} : { y: -5, transition: { duration: 0.2 } }}
             >
-              <div className="text-2xl sm:text-3xl md:text-4xl mb-2 sm:mb-3 group-hover:scale-110 transition-transform text-purple-primary dark:text-white monochrome:text-mono-primary blue:text-blue-primary group-hover:text-white flex justify-center md:justify-start">
+              <div className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4 group-hover:scale-110 transition-transform text-purple-primary dark:text-white monochrome:text-mono-primary blue:text-blue-primary group-hover:text-white flex justify-center md:justify-start">
                 {direction.icon}
               </div>
-              <h3 className="font-bold mb-1.5 sm:mb-2 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark group-hover:text-white transition-colors text-sm sm:text-base md:text-lg leading-tight">
+              <h3 className="font-bold mb-2 sm:mb-3 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark group-hover:text-white transition-colors text-sm sm:text-base md:text-lg leading-tight">
                 {direction.title}
               </h3>
               {direction.description && (
-                <p className="text-xs sm:text-sm text-center md:text-left text-gray-600 dark:text-gray-300 group-hover:text-white/90 transition-colors leading-relaxed">
+                <p className="text-xs sm:text-sm text-left text-gray-600 dark:text-gray-300 group-hover:text-white/90 transition-colors leading-relaxed">
                   {direction.description}
                 </p>
               )}
@@ -119,7 +119,7 @@ export default function Directions({ cityData }: DirectionsProps = {}) {
         </div>
 
         <motion.div
-          className="text-center mt-6 sm:mt-8 md:mt-10"
+          className="text-center mt-10 sm:mt-12 md:mt-14"
           variants={isMobile ? mobileFadeIn : fadeInVariants}
           initial="hidden"
           animate={isMobile ? "visible" : undefined}
