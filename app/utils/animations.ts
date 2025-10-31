@@ -1,10 +1,10 @@
-import { Variants } from 'framer-motion';
+import { Variants, Easing } from 'framer-motion';
 
 export const useAnimationVariants = (isMobile: boolean) => {
   // Очень мягкие easing функции для максимальной плавности
-  const ultraSmoothEase = [0.16, 1, 0.3, 1]; // Еще более плавная кривая
-  const smoothEase = [0.22, 1, 0.36, 1]; // Custom cubic-bezier для плавности
-  const gentleEase = [0.43, 0.13, 0.23, 0.96]; // Мягкая кривая без резких изменений
+  const ultraSmoothEase: Easing = [0.16, 1, 0.3, 1] as const; // Еще более плавная кривая
+  const smoothEase: Easing = [0.22, 1, 0.36, 1] as const; // Custom cubic-bezier для плавности
+  const gentleEase: Easing = [0.43, 0.13, 0.23, 0.96] as const; // Мягкая кривая без резких изменений
   
   // Базовые варианты для заголовков - плавное появление
   const fadeInVariants: Variants = {
