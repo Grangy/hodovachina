@@ -67,7 +67,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/">
             <motion.div
-              className="flex items-center h-8 sm:h-10 md:h-12"
+              className="flex items-center h-10 sm:h-12 md:h-14 lg:h-16"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -75,7 +75,7 @@ export default function Header() {
                 src={logoSrc}
                 alt="hodovachina"
                 width={160}
-                height={48}
+                height={64}
                 className="h-full w-auto object-contain"
                 priority
               />
