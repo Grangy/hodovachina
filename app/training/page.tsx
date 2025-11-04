@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useAnimationVariants, getViewportSettings } from '../utils/animations';
 import { FaDownload, FaGraduationCap, FaUsers, FaUser } from 'react-icons/fa';
+import { useToast } from '../components/ToastProvider';
 
 export default function TrainingPage() {
   const [isMobile, setIsMobile] = useState(false);
@@ -280,6 +281,7 @@ export default function TrainingPage() {
 }
 
 function TrainingForm() {
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -323,37 +325,51 @@ function TrainingForm() {
     e.preventDefault();
     if (!validateForm()) return;
     
+    const submitStart = Date.now();
+    console.log('[TrainingForm] Form submission started at:', new Date().toISOString());
+    
     setIsSubmitting(true);
     
     const message = `Запись на обучение:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email || 'Не указан'}\nТип обучения: ${formData.trainingType === 'group' ? 'Групповое (12 999 ₽)' : 'Индивидуальное (39 999 ₽)'}\nКомментарий: ${formData.comment || 'Нет'}`;
     
-    try {
-      const response = await fetch('/api/telegram', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message,
-          type: 'training',
-        }),
+    // Сразу показываем успех пользователю, а отправку делаем в фоне
+    showToast('Спасибо за заявку! Мы свяжемся с вами в ближайшее время для уточнения деталей.', 'success');
+    setFormData({ name: '', phone: '', email: '', trainingType: 'group', comment: '' });
+    setFormErrors({});
+    setIsSubmitting(false);
+    
+    // Отправляем в Telegram асинхронно (не блокируем UI)
+    const telegramStart = Date.now();
+    fetch('/api/telegram', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message,
+        type: 'training',
+      }),
+    })
+      .then(async (response) => {
+        const telegramTime = Date.now() - telegramStart;
+        console.log('[TrainingForm] Telegram response received in', telegramTime, 'ms');
+        
+        const data = await response.json();
+        const totalTime = Date.now() - submitStart;
+        console.log('[TrainingForm] Total submission time:', totalTime, 'ms');
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Ошибка отправки');
+        }
+
+        console.log('[TrainingForm] Successfully sent to Telegram');
+      })
+      .catch((error) => {
+        const totalTime = Date.now() - submitStart;
+        console.error('[TrainingForm] Error after', totalTime, 'ms:', error);
+        // Показываем ошибку только если нужно, но не блокируем пользователя
+        // showToast('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Ошибка отправки');
-      }
-
-      alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время для уточнения деталей.');
-      setFormData({ name: '', phone: '', email: '', trainingType: 'group', comment: '' });
-      setFormErrors({});
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (

@@ -5,12 +5,14 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa';
 import { CityData } from '../data/cities';
+import { useToast } from './ToastProvider';
 
 interface ContactFormProps {
   cityData?: CityData | null;
 }
 
 export default function ContactForm({ cityData }: ContactFormProps = {}) {
+  const { showToast } = useToast();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -53,37 +55,51 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
     e.preventDefault();
     if (!validateForm()) return;
     
+    const submitStart = Date.now();
+    console.log('[ContactForm] Form submission started at:', new Date().toISOString());
+    
     setIsSubmitting(true);
     
     const message = `Новая заявка:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nWhatsApp: ${formData.whatsapp || 'Не указан'}\nКомментарий: ${formData.comment || 'Нет комментария'}`;
     
-    try {
-      const response = await fetch('/api/telegram', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message,
-          type: 'contact',
-        }),
+    // Сразу показываем успех пользователю, а отправку делаем в фоне
+    showToast('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.', 'success');
+    setFormData({ name: '', phone: '', whatsapp: '', comment: '' });
+    setFormErrors({});
+    setIsSubmitting(false);
+    
+    // Отправляем в Telegram асинхронно (не блокируем UI)
+    const telegramStart = Date.now();
+    fetch('/api/telegram', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message,
+        type: 'contact',
+      }),
+    })
+      .then(async (response) => {
+        const telegramTime = Date.now() - telegramStart;
+        console.log('[ContactForm] Telegram response received in', telegramTime, 'ms');
+        
+        const data = await response.json();
+        const totalTime = Date.now() - submitStart;
+        console.log('[ContactForm] Total submission time:', totalTime, 'ms');
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Ошибка отправки');
+        }
+
+        console.log('[ContactForm] Successfully sent to Telegram');
+      })
+      .catch((error) => {
+        const totalTime = Date.now() - submitStart;
+        console.error('[ContactForm] Error after', totalTime, 'ms:', error);
+        // Показываем ошибку только если нужно, но не блокируем пользователя
+        // showToast('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже.', 'error');
       });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Ошибка отправки');
-      }
-
-      alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-      setFormData({ name: '', phone: '', whatsapp: '', comment: '' });
-      setFormErrors({});
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   const [isMobileState, setIsMobileState] = useState(false);

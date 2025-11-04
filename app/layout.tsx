@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Roboto, Manrope, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { ToastProvider } from "./components/ToastProvider";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -36,7 +37,9 @@ export default function RootLayout({
         className={`${roboto.variable} ${manrope.variable} ${dancingScript.variable} antialiased overflow-x-hidden`}
       >
         <ThemeProvider>
-          {children}
+          <ToastProvider>
+            {children}
+          </ToastProvider>
         </ThemeProvider>
       </body>
     </html>
