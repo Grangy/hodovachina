@@ -2,11 +2,60 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useTheme } from '../contexts/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+  const [logoSrc, setLogoSrc] = useState('/logo_black.png');
+  
+  // Используем useTheme только после монтирования
+  let theme: 'light' | 'dark' | 'blue' | 'monochrome' = 'monochrome';
+  try {
+    const themeContext = useTheme();
+    theme = themeContext.theme;
+  } catch {
+    // Fallback для SSR
+    theme = 'monochrome';
+  }
+
+  useEffect(() => {
+    setMounted(true);
+    // Определяем тему из data-theme атрибута при монтировании
+    const updateLogo = () => {
+      const htmlTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | 'blue' | 'monochrome' || 'monochrome';
+      setLogoSrc(htmlTheme === 'dark' ? '/logo_white.png' : '/logo_black.png');
+    };
+    updateLogo();
+
+    // Следим за изменениями data-theme атрибута
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+          updateLogo();
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Обновляем логотип при изменении темы из контекста
+  useEffect(() => {
+    if (mounted) {
+      setLogoSrc(theme === 'dark' ? '/logo_white.png' : '/logo_black.png');
+    }
+  }, [theme, mounted]);
+
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -18,13 +67,18 @@ export default function Header() {
           {/* Logo */}
           <Link href="/">
             <motion.div
-              className="flex items-center"
+              className="flex items-center h-8 sm:h-10 md:h-12"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-dark dark:text-white monochrome:text-gray-dark transition-colors">
-                hodovachina
-              </span>
+              <Image
+                src={logoSrc}
+                alt="hodovachina"
+                width={160}
+                height={48}
+                className="h-full w-auto object-contain"
+                priority
+              />
             </motion.div>
           </Link>
 
