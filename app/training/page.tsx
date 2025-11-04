@@ -117,20 +117,32 @@ export default function TrainingPage() {
 
                 <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-700">
                   <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Обучение в группе до 10 человек</span>
+                    <span className="mr-2 flex-shrink-0">🔹</span>
+                    <span>Регистрация и поиск надёжных поставщиков на Китайских маркетплейсах и в платежной системе</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 flex-shrink-0">🔹</span>
+                    <span>Проверка продавцов и фабрик (чек-листы и сервисы)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 flex-shrink-0">🔹</span>
+                    <span>Переписка с китайцами: шаблоны сообщений и переговоров</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 flex-shrink-0">🔹</span>
+                    <span>Расчёт, логистика и растаможка</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 flex-shrink-0">🔹</span>
+                    <span>Как заработать на посредничестве</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 flex-shrink-0">🔹</span>
+                    <span>Мини-практикум: найди поставщика под свой товар</span>
                   </li>
                   <li className="flex items-start">
                     <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Практические кейсы и примеры</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Доступ к материалам и записям</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Ответы на вопросы в групповом чате</span>
+                    <span>Группа до 15 человек</span>
                   </li>
                 </ul>
 
@@ -173,24 +185,28 @@ export default function TrainingPage() {
 
                 <ul className="space-y-3 sm:space-y-4 mb-6 sm:mb-8 text-sm sm:text-base text-gray-700 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-700">
                   <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Индивидуальные занятия один на один</span>
+                    <span className="mr-2 flex-shrink-0">•</span>
+                    <span>Личный куратор и обратная связь в течении 4-х месяцев</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Персональная программа под ваши задачи</span>
+                    <span className="mr-2 flex-shrink-0">•</span>
+                    <span>Индивидуальные встречи (Zoom/Telegram)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Разбор ваших конкретных кейсов</span>
+                    <span className="mr-2 flex-shrink-0">•</span>
+                    <span>Чек-листы, шаблоны и база поставщиков</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
-                    <span>Поддержка после обучения</span>
+                    <span className="mr-2 flex-shrink-0">•</span>
+                    <span>Полное сопровождение до результата</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="mr-2 flex-shrink-0">✓</span>
+                    <span className="mr-2 flex-shrink-0">•</span>
                     <span>Гибкий график занятий</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="mr-2 flex-shrink-0">•</span>
+                    <span>Индивидуальная программа под ваш запрос</span>
                   </li>
                 </ul>
 
