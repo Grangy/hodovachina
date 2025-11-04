@@ -324,15 +324,36 @@ function TrainingForm() {
     if (!validateForm()) return;
     
     setIsSubmitting(true);
+    
     const message = `Запись на обучение:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nEmail: ${formData.email || 'Не указан'}\nТип обучения: ${formData.trainingType === 'group' ? 'Групповое (12 999 ₽)' : 'Индивидуальное (39 999 ₽)'}\nКомментарий: ${formData.comment || 'Нет'}`;
     
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(message);
-    
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время для уточнения деталей.');
-    setFormData({ name: '', phone: '', email: '', trainingType: 'group', comment: '' });
-    setFormErrors({});
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message,
+          type: 'training',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Ошибка отправки');
+      }
+
+      alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время для уточнения деталей.');
+      setFormData({ name: '', phone: '', email: '', trainingType: 'group', comment: '' });
+      setFormErrors({});
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

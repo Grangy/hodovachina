@@ -54,15 +54,36 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
     if (!validateForm()) return;
     
     setIsSubmitting(true);
-    const message = `Новая заявка:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nWhatsApp: ${formData.whatsapp || 'Не указан'}\nКомментарий: ${formData.comment}`;
     
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log(message);
+    const message = `Новая заявка:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nWhatsApp: ${formData.whatsapp || 'Не указан'}\nКомментарий: ${formData.comment || 'Нет комментария'}`;
     
-    alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', phone: '', whatsapp: '', comment: '' });
-    setFormErrors({});
-    setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message,
+          type: 'contact',
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Ошибка отправки');
+      }
+
+      alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+      setFormData({ name: '', phone: '', whatsapp: '', comment: '' });
+      setFormErrors({});
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Произошла ошибка при отправке заявки. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const [isMobileState, setIsMobileState] = useState(false);
