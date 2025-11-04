@@ -134,7 +134,7 @@ export default function Hero({ cityData }: HeroProps = {}) {
   };
 
   const openWhatsApp = () => {
-    const whatsappNumber = cityData?.whatsapp || '+79991234567';
+    const whatsappNumber = cityData?.whatsapp || '+79288440555';
     window.open(`https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}`, '_blank');
   };
 

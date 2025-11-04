@@ -127,7 +127,7 @@ export const defaultCity: CityData = {
   name: 'России',
   nameGenitive: 'России',
   phone: '+7 (999) 123-45-67',
-  whatsapp: '+79991234567',
+  whatsapp: '+79288440555',
   telegram: '@hodovachina',
   telegramLink: 'https://t.me/hodovachina',
   instagram: 'hodovachina',

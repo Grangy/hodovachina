@@ -227,7 +227,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <motion.a
-                href={`https://wa.me/${(cityData?.whatsapp || '+79991234567').replace(/[^\d]/g, '')}`}
+                href={`https://wa.me/${(cityData?.whatsapp || '+79288440555').replace(/[^\d]/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-700 dark:text-gray-300 blue:text-gray-700 hover:text-purple-primary dark:hover:text-purple-primary blue:hover:text-blue-primary transition-colors"
