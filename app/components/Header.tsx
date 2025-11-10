@@ -4,64 +4,16 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { useTheme } from '../contexts/ThemeContext';
-import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const pathname = usePathname();
-  const [mounted, setMounted] = useState(false);
-  const [logoSrc, setLogoSrc] = useState('/logo_black.png');
-  
-  // Используем useTheme только после монтирования
-  let theme: 'light' | 'dark' | 'blue' | 'monochrome' = 'monochrome';
-  try {
-    const themeContext = useTheme();
-    theme = themeContext.theme;
-  } catch {
-    // Fallback для SSR
-    theme = 'monochrome';
-  }
-
-  useEffect(() => {
-    setMounted(true);
-    // Определяем тему из data-theme атрибута при монтировании
-    const updateLogo = () => {
-      const htmlTheme = document.documentElement.getAttribute('data-theme') as 'light' | 'dark' | 'blue' | 'monochrome' || 'monochrome';
-      setLogoSrc(htmlTheme === 'dark' ? '/logo_white.png' : '/logo_black.png');
-    };
-    updateLogo();
-
-    // Следим за изменениями data-theme атрибута
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
-          updateLogo();
-        }
-      });
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Обновляем логотип при изменении темы из контекста
-  useEffect(() => {
-    if (mounted) {
-      setLogoSrc(theme === 'dark' ? '/logo_white.png' : '/logo_black.png');
-    }
-  }, [theme, mounted]);
 
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white shadow-sm transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
       <nav className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-20">
           {/* Logo */}
@@ -72,7 +24,7 @@ export default function Header() {
               whileTap={{ scale: 0.95 }}
             >
               <Image
-                src={logoSrc}
+                src="/logo_black.png"
                 alt="hodovachina"
                 width={160}
                 height={64}
@@ -89,8 +41,8 @@ export default function Header() {
               <motion.div
                 className={`text-xs sm:text-sm md:text-base font-semibold transition-colors px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg ${
                   pathname === '/training'
-                    ? 'bg-purple-light dark:bg-gray-800 text-purple-primary dark:text-purple-primary'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-purple-primary dark:hover:text-purple-primary'
+                    ? 'bg-slate-200 text-slate-900'
+                    : 'text-slate-700 hover:text-slate-900'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -99,14 +51,12 @@ export default function Header() {
                 <span className="sm:hidden">Учеба</span>
               </motion.div>
             </Link>
-
-            <ThemeToggle />
             {pathname !== '/training' && (
               <motion.button
                 onClick={scrollToForm}
-                className="bg-black dark:bg-purple-primary blue:dark:bg-blue-primary monochrome:bg-mono-primary hover:bg-gray-dark dark:hover:bg-purple-dark blue:dark:hover:bg-blue-dark monochrome:hover:bg-mono-dark text-white px-3 sm:px-4 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-lg text-xs sm:text-sm md:text-base font-semibold transition-colors whitespace-nowrap"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="button-gradient px-4 sm:px-5 md:px-7 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base whitespace-nowrap"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
               >
                 <span className="hidden sm:inline">Оставить заявку</span>
                 <span className="sm:hidden">Заявка</span>

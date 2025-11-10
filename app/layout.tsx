@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Roboto, Manrope, Dancing_Script } from "next/font/google";
+import { Inter, Raleway, Dancing_Script } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "./contexts/ThemeContext";
 import { ToastProvider } from "./components/ToastProvider";
 
-const roboto = Roboto({
-  variable: "--font-roboto",
-  weight: ["300", "400", "500", "700", "900"],
+const inter = Inter({
+  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin", "cyrillic"],
   display: "swap",
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const raleway = Raleway({
+  variable: "--font-raleway",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin", "cyrillic"],
+  display: "swap",
 });
 
 const dancingScript = Dancing_Script({
@@ -32,15 +33,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ru" className="overflow-x-hidden">
+    <html lang="ru" className="overflow-x-hidden" data-theme="monochrome">
       <body
-        className={`${roboto.variable} ${manrope.variable} ${dancingScript.variable} antialiased overflow-x-hidden`}
+        className={`${inter.variable} ${raleway.variable} ${dancingScript.variable} antialiased overflow-x-hidden`}
       >
-        <ThemeProvider>
-          <ToastProvider>
-            {children}
-          </ToastProvider>
-        </ThemeProvider>
+        <ToastProvider>
+          {children}
+        </ToastProvider>
       </body>
     </html>
   );

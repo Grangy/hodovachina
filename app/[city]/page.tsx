@@ -1,6 +1,5 @@
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import Directions from '../components/Directions';
 import Advantages from '../components/Advantages';
 import CooperationFormats from '../components/CooperationFormats';
 import WorkSteps from '../components/WorkSteps';
@@ -56,7 +55,6 @@ export default async function CityPage({ params }: CityPageProps) {
     <div className="min-h-screen bg-white dark:bg-gray-900 blue:bg-blue-light monochrome:bg-white transition-colors">
       <Header />
       <Hero cityData={cityData} />
-      <Directions cityData={cityData} />
       <Advantages />
       <CooperationFormats cityData={cityData} />
       <WorkSteps cityData={cityData} />

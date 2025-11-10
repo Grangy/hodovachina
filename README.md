@@ -67,17 +67,13 @@ my-app/
 │   ├── components/          # React компоненты
 │   │   ├── Header.tsx       # Шапка сайта
 │   │   ├── Hero.tsx         # Главный блок
-│   │   ├── Directions.tsx   # Направления работы
 │   │   ├── Advantages.tsx   # Преимущества
 │   │   ├── CooperationFormats.tsx  # Форматы сотрудничества
 │   │   ├── WorkSteps.tsx    # Этапы работы
 │   │   ├── Testimonials.tsx # Отзывы
 │   │   ├── FAQ.tsx          # Часто задаваемые вопросы
 │   │   ├── ContactForm.tsx  # Форма обратной связи
-│   │   ├── Footer.tsx       # Подвал
-│   │   └── ThemeToggle.tsx  # Переключатель темы
-│   ├── contexts/
-│   │   └── ThemeContext.tsx # Контекст темы
+│   │   └── Footer.tsx       # Подвал
 │   ├── data/
 │   │   └── cities.ts        # Данные о городах
 │   ├── globals.css          # Глобальные стили

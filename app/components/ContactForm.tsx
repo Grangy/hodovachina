@@ -114,7 +114,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
   }, []);
 
   return (
-    <section id="contact-form" className="py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+    <section id="contact-form" className="section-shell py-8 sm:py-12 md:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-purple-light dark:bg-gray-800 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
       <div className="max-w-6xl mx-auto w-full overflow-hidden">
         <motion.h2
           className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors px-2"
@@ -131,7 +131,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
           {/* Form */}
           <motion.form
             onSubmit={handleSubmit}
-            className="bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="card-highlight bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
             initial={{ opacity: isMobileState ? 1 : 0, x: isMobileState ? 0 : -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: isMobileState ? 0 : 0.6, delay: isMobileState ? 0 : 0.2 }}
@@ -214,7 +214,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark disabled:opacity-50 disabled:cursor-not-allowed text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all hover:scale-105 active:scale-95"
+              className="button-gradient w-full px-8 py-4 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? 'Отправка...' : 'Получить расчёт'}
             </button>
@@ -265,7 +265,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
 
         {/* Image */}
         <motion.div
-          className="relative w-full h-64 sm:h-80 lg:h-96"
+          className="card-highlight relative w-full h-64 sm:h-80 lg:h-96 rounded-xl md:rounded-2xl overflow-hidden flex items-center justify-center"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-50px' }}

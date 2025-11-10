@@ -63,7 +63,7 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
   const currentImageVariants = isMobile ? mobileImageVariants : imageVariants;
 
   return (
-    <section className="py-8 sm:py-12 md:py-16 lg:py-24 px-3 sm:px-4 md:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24 lg:pb-28 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
+    <section className="section-shell py-8 sm:py-12 md:py-16 lg:py-24 px-3 sm:px-4 md:px-6 lg:px-8 pb-16 sm:pb-20 md:pb-24 lg:pb-28 bg-white dark:bg-gray-900 monochrome:bg-mono-light blue:bg-blue-light transition-colors overflow-hidden w-full">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-start">
           {/* Content */}
@@ -122,7 +122,7 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
             >
               <motion.button
                 onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 rounded-lg text-xs sm:text-sm md:text-base font-semibold transition-all hover:scale-105 active:scale-95 w-full sm:w-auto min-h-[44px] max-w-[280px] sm:max-w-none"
+                className="button-gradient px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base w-full sm:w-auto min-h-[44px] max-w-[280px] sm:max-w-none"
                 whileHover={isMobile ? {} : { scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -133,7 +133,7 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
 
           {/* Image */}
           <motion.div
-            className="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-80 order-1 lg:order-2 mb-4 sm:mb-6 md:mb-8 lg:mb-0"
+            className="card-highlight relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-80 order-1 lg:order-2 mb-4 sm:mb-6 md:mb-8 lg:mb-0 rounded-xl md:rounded-2xl overflow-hidden"
             variants={currentImageVariants}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}

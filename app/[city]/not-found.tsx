@@ -10,7 +10,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="inline-block bg-purple-primary hover:bg-purple-dark text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+          className="button-gradient inline-block px-6 py-3"
         >
           Вернуться на главную
         </Link>

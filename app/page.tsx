@@ -1,6 +1,5 @@
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Directions from './components/Directions';
 import Advantages from './components/Advantages';
 import CooperationFormats from './components/CooperationFormats';
 import WorkSteps from './components/WorkSteps';
@@ -15,7 +14,6 @@ export default function Home() {
       <div className="w-full max-w-full overflow-x-hidden">
         <Header />
         <Hero />
-        <Directions />
         <Advantages />
         <CooperationFormats />
         <WorkSteps />

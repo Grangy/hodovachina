@@ -150,7 +150,7 @@ export default function TrainingPage() {
                 <div className="space-y-3 sm:space-y-4">
                   <motion.button
                     onClick={() => downloadProgram('group')}
-                    className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 sm:gap-3 min-h-[44px]"
+                    className="button-gradient w-full px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 min-h-[44px]"
                     whileHover={isMobile ? {} : { scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -214,7 +214,7 @@ export default function TrainingPage() {
                 <div className="space-y-3 sm:space-y-4">
                   <motion.button
                     onClick={() => downloadProgram('individual')}
-                    className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg text-sm sm:text-base font-semibold transition-all hover:scale-105 active:scale-95 flex items-center justify-center gap-2 sm:gap-3 min-h-[44px]"
+                    className="button-gradient w-full px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 min-h-[44px]"
                     whileHover={isMobile ? {} : { scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -236,7 +236,7 @@ export default function TrainingPage() {
             >
               <motion.button
                 onClick={scrollToForm}
-                className="bg-purple-primary dark:bg-purple-primary monochrome:bg-mono-primary blue:bg-blue-primary hover:bg-purple-dark dark:hover:bg-purple-dark monochrome:hover:bg-mono-dark blue:hover:bg-blue-dark text-white px-8 sm:px-10 md:px-12 py-4 sm:py-5 rounded-lg text-base sm:text-lg md:text-xl font-semibold transition-all hover:scale-105 active:scale-95 min-h-[44px] inline-flex items-center gap-3"
+                className="button-gradient px-8 sm:px-10 md:px-12 py-4 sm:py-5 text-base sm:text-lg md:text-xl min-h-[44px] inline-flex items-center gap-3"
                 whileHover={isMobile ? {} : { scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -466,7 +466,7 @@ function TrainingForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-black dark:bg-purple-primary monochrome:bg-mono-primary monochrome:hover:bg-mono-dark hover:bg-gray-dark dark:hover:bg-purple-dark disabled:opacity-50 disabled:cursor-not-allowed text-white px-8 py-4 rounded-lg text-base sm:text-lg font-semibold transition-all hover:scale-105 active:scale-95 min-h-[44px]"
+        className="button-gradient w-full px-8 py-4 text-base sm:text-lg disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px]"
       >
         {isSubmitting ? 'Отправка...' : 'Отправить заявку на обучение'}
       </button>
