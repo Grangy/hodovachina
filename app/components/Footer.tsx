@@ -63,12 +63,12 @@ export default function Footer({ cityData }: FooterProps = {}) {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-slate-200">
-          <div className="h-14 flex items-center">
+          <div className="h-24 flex items-center">
             <Image
               src={logoSrc}
               alt="hodovachina"
-              width={160}
-              height={64}
+              width={320}
+              height={128}
               className="h-full w-auto object-contain"
             />
           </div>
