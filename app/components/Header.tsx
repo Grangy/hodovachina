@@ -9,7 +9,17 @@ export default function Header() {
   const pathname = usePathname();
 
   const scrollToForm = () => {
-    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+    const targetIds = pathname === '/training'
+      ? ['training-form', 'contact-form']
+      : ['contact-form', 'training-form'];
+
+    for (const id of targetIds) {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+        break;
+      }
+    }
   };
 
   return (

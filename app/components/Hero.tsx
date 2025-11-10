@@ -271,10 +271,10 @@ export default function Hero({ cityData }: HeroProps = {}) {
 
               <Image
                 src="/images/man.png"
-              alt="Команда логистов рядом с коробками"
+                alt="Команда логистов рядом с коробками"
                 fill
-              sizes="(max-width: 640px) 65vw, (max-width: 1024px) 45vw, 480px"
-              className="object-contain p-5 sm:p-8"
+                sizes="(max-width: 640px) 65vw, (max-width: 1024px) 45vw, 480px"
+                className="object-contain p-5 sm:p-8"
                 priority
               />
 
