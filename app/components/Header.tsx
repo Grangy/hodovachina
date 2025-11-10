@@ -51,17 +51,15 @@ export default function Header() {
                 <span className="sm:hidden">Учеба</span>
               </motion.div>
             </Link>
-            {pathname !== '/training' && (
-              <motion.button
-                onClick={scrollToForm}
-                className="button-gradient px-4 sm:px-5 md:px-7 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base whitespace-nowrap"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-              >
-                <span className="hidden sm:inline">Оставить заявку</span>
-                <span className="sm:hidden">Заявка</span>
-              </motion.button>
-            )}
+            <motion.button
+              onClick={scrollToForm}
+              className="button-gradient px-4 sm:px-5 md:px-7 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base whitespace-nowrap"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span className="hidden sm:inline">Оставить заявку</span>
+              <span className="sm:hidden">Заявка</span>
+            </motion.button>
           </div>
         </div>
       </nav>

@@ -141,8 +141,8 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
             viewport={isMobile ? undefined : viewportSettings}
           >
             <Image
-              src="/images/postavshiki.png"
-              alt="Поставщики и документы"
+              src="/images/delivery1.png"
+              alt="Организация поставки"
               fill
               className="object-contain"
             />

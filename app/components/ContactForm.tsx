@@ -272,8 +272,8 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
           transition={{ duration: 0.6 }}
         >
           <Image
-            src="/images/contact.png"
-            alt="Контакты"
+            src="/images/request.png"
+            alt="Оставить заявку"
             fill
             className="object-contain"
           />

@@ -84,7 +84,7 @@ export default function FAQ() {
             viewport={isMobile ? undefined : viewportSettings}
           >
             <Image
-              src="/images/fuq.png"
+              src="/images/faq.png"
               alt="FAQ"
               fill
               className="object-contain"

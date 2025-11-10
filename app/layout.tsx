@@ -25,6 +25,35 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   title: "Оптовые поставки товаров из Китая под ключ | Доставка по России",
   description: "Выкуп, производство, брендирование, логистика и растаможка товаров из Китая. Опт от 100 000 ₽, совместные закупки от 5 000 ₽. Официальная доставка по всей России.",
+  manifest: "/manifest.json",
+  themeColor: "#0f172a",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-128x128.png", sizes: "128x128", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-384x384.png", sizes: "384x384", type: "image/png" },
+      { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/favicon-57x57.png", sizes: "57x57", type: "image/png" },
+      { url: "/favicon-60x60.png", sizes: "60x60", type: "image/png" },
+      { url: "/favicon-72x72.png", sizes: "72x72", type: "image/png" },
+      { url: "/favicon-76x76.png", sizes: "76x76", type: "image/png" },
+      { url: "/favicon-114x114.png", sizes: "114x114", type: "image/png" },
+      { url: "/favicon-120x120.png", sizes: "120x120", type: "image/png" },
+      { url: "/favicon-144x144.png", sizes: "144x144", type: "image/png" },
+      { url: "/favicon-152x152.png", sizes: "152x152", type: "image/png" },
+      { url: "/favicon-180x180.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+  },
+  other: {
+    "msapplication-TileColor": "#0f172a",
+    "msapplication-config": "/browserconfig.xml",
+  },
 };
 
 export default function RootLayout({
