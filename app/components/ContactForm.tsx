@@ -265,7 +265,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
 
         {/* Image */}
         <motion.div
-          className="card-highlight relative w-full h-64 sm:h-80 lg:h-96 rounded-xl md:rounded-2xl overflow-hidden flex items-center justify-center"
+          className="relative w-full h-64 sm:h-80 lg:h-96 overflow-hidden flex items-center justify-center"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: '-50px' }}

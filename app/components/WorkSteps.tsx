@@ -133,7 +133,7 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
 
           {/* Image */}
           <motion.div
-            className="card-highlight relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-80 order-1 lg:order-2 mb-4 sm:mb-6 md:mb-8 lg:mb-0 rounded-xl md:rounded-2xl overflow-hidden"
+            className="relative w-full h-40 sm:h-48 md:h-56 lg:h-64 xl:h-80 order-1 lg:order-2 mb-4 sm:mb-6 md:mb-8 lg:mb-0 overflow-hidden"
             variants={currentImageVariants}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
