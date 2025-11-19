@@ -1,9 +1,30 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001';
+
 export const metadata: Metadata = {
-  title: 'Политика конфиденциальности | hodovachina',
-  description: 'Политика конфиденциальности и обработки персональных данных',
+  title: 'Политика конфиденциальности | Hodova China',
+  description: 'Политика конфиденциальности и обработки персональных данных компании Hodova China',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: '/privacy',
+  },
+  openGraph: {
+    title: 'Политика конфиденциальности | Hodova China',
+    description: 'Политика конфиденциальности и обработки персональных данных',
+    url: `${BASE_URL}/privacy`,
+    siteName: 'Hodova China',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Политика конфиденциальности | Hodova China',
+    description: 'Политика конфиденциальности и обработки персональных данных',
+  },
 };
 
 export default function PrivacyPage() {
@@ -124,9 +145,34 @@ export default function PrivacyPage() {
             <h2 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">
               9. Контактная информация
             </h2>
-            <p>
-              По всем вопросам, связанным с обработкой персональных данных, вы можете связаться с нами через форму обратной связи на Сайте или по контактным данным, указанным на Сайте.
+            <p className="mb-4">
+              По всем вопросам, связанным с обработкой персональных данных, вы можете связаться с нами через форму обратной связи на Сайте или по контактным данным, указанным ниже.
             </p>
+            
+            <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg space-y-4">
+              <div>
+                <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Контактная информация</h3>
+                <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                  <p><strong>Индивидуальный предприниматель Ходова Анастасия Игоревна</strong></p>
+                  <p>Адрес: Краснодарский край, г Новороссийск, ул Мира, д 1</p>
+                  <p>Телефон: <a href="tel:+79288440555" className="text-purple-primary hover:underline">+7 (928) 844-05-55</a></p>
+                  <p>Электронная почта: <a href="mailto:hodovachina@yandex.ru" className="text-purple-primary hover:underline">hodovachina@yandex.ru</a></p>
+                </div>
+              </div>
+
+              <div>
+                <h3 className="font-semibold text-lg mb-2 text-gray-900 dark:text-white">Реквизиты</h3>
+                <div className="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                  <p>Наименование организации: Индивидуальный предприниматель Ходова Анастасия Игоревна</p>
+                  <p>ИНН: 1516 0428 2160</p>
+                  <p>ОГРН: 32515 00000 43863</p>
+                  <p>Название банка: ООО "Банк Точка"</p>
+                  <p>Расчётный счёт: 4080 2810 0200 0076 5842</p>
+                  <p>Корр. счёт: 3010 1810 7453 7452 5104</p>
+                  <p>БИК: 044 525 104</p>
+                </div>
+              </div>
+            </div>
           </section>
 
           <section className="pt-6 border-t border-gray-200 dark:border-gray-700">

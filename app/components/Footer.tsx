@@ -79,8 +79,34 @@ export default function Footer({ cityData }: FooterProps = {}) {
             </button>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-slate-200 text-center text-sm text-slate-600">
-          <p>© {new Date().getFullYear()} hodovachina. Все права защищены.</p>
+        {/* Реквизиты */}
+        <div className="mt-8 pt-8 border-t border-slate-200">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <h3 className="font-semibold text-sm text-slate-900 mb-3">Контактная информация</h3>
+              <div className="text-xs sm:text-sm text-slate-600 space-y-1">
+                <p><strong>ИП Ходова Анастасия Игоревна</strong></p>
+                <p>Адрес: Краснодарский край, г Новороссийск, ул Мира, д 1</p>
+                <p>Телефон: <a href="tel:+79288440555" className="hover:text-slate-900">+7 (928) 844-05-55</a></p>
+                <p>Email: <a href="mailto:hodovachina@yandex.ru" className="hover:text-slate-900">hodovachina@yandex.ru</a></p>
+              </div>
+            </div>
+            <div>
+              <h3 className="font-semibold text-sm text-slate-900 mb-3">Реквизиты</h3>
+              <div className="text-xs sm:text-sm text-slate-600 space-y-1">
+                <p>ИНН: 1516 0428 2160</p>
+                <p>ОГРН: 32515 00000 43863</p>
+                <p>Банк: ООО "Банк Точка"</p>
+                <p>Р/С: 4080 2810 0200 0076 5842</p>
+                <p>К/С: 3010 1810 7453 7452 5104</p>
+                <p>БИК: 044 525 104</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 pt-6 border-t border-slate-200 text-center text-sm text-slate-600">
+          <p>© {new Date().getFullYear()} ИП Ходова Анастасия Игоревна. Все права защищены.</p>
         </div>
       </div>
     </footer>
