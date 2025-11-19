@@ -24,7 +24,7 @@ const advantages: Advantage[] = [
   },
   {
     title: 'Полное документальное сопровождение',
-    description: 'Все документы для белого ввоза.',
+    description: 'Все документы для белого и серого ввоза.',
     icon: <FaCheckCircle />
   },
   {
@@ -35,6 +35,11 @@ const advantages: Advantage[] = [
   {
     title: 'Опыт работы с крупными и мелкими заказами',
     description: 'От 5 000 ₽ до крупных оптовых поставок.',
+    icon: <FaCheckCircle />
+  },
+  {
+    title: 'Прозрачная логистика',
+    description: 'Отслеживание на всех этапах, без скрытых платежей.',
     icon: <FaCheckCircle />
   }
 ];

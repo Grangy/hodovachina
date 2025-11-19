@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { CityData } from '../data/cities';
 import { useState, useEffect } from 'react';
 import { useAnimationVariants, getViewportSettings } from '../utils/animations';
+import { useModal } from './ModalProvider';
 
 interface Step {
   number: number;
@@ -46,6 +47,7 @@ const steps: Step[] = [
 
 export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
   const [isMobile, setIsMobile] = useState(false);
+  const { openModal } = useModal();
   const { fadeInVariants, listItemVariants, imageVariants } = useAnimationVariants(false);
   const { fadeInVariants: mobileFadeIn, listItemVariants: mobileListItemVariants, imageVariants: mobileImageVariants } = useAnimationVariants(true);
   const viewportSettings = getViewportSettings(isMobile);
@@ -121,7 +123,7 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
               viewport={isMobile ? undefined : viewportSettings}
             >
               <motion.button
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={openModal}
                 className="button-gradient px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-3.5 text-xs sm:text-sm md:text-base w-full sm:w-auto min-h-[44px] max-w-[280px] sm:max-w-none"
                 whileHover={isMobile ? {} : { scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -141,7 +143,7 @@ export default function WorkSteps({ cityData }: WorkStepsProps = {}) {
             viewport={isMobile ? undefined : viewportSettings}
           >
             <Image
-              src="/images/delivery1.png"
+              src="/images/postavki.png"
               alt="Организация поставки"
               fill
               className="object-contain"

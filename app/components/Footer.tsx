@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { FaBox, FaFileAlt, FaRocket, FaGlobe } from 'react-icons/fa';
 import { CityData } from '../data/cities';
+import { useModal } from './ModalProvider';
 
 interface FooterProps {
   cityData?: CityData | null;
@@ -10,10 +11,7 @@ interface FooterProps {
 
 export default function Footer({ cityData }: FooterProps = {}) {
   const logoSrc = '/logo_black.png';
-
-  const scrollToForm = () => {
-    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const { openModal } = useModal();
 
   return (
     <footer className="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
@@ -74,7 +72,7 @@ export default function Footer({ cityData }: FooterProps = {}) {
           </div>
           <div className="flex gap-6">
             <button
-              onClick={scrollToForm}
+              onClick={openModal}
               className="button-gradient px-8 py-3"
             >
               Оставить заявку

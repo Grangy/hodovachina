@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Raleway, Dancing_Script } from "next/font/google";
 import "./globals.css";
 import { ToastProvider } from "./components/ToastProvider";
+import { ModalProvider } from "./components/ModalProvider";
+import RequestModal from "./components/RequestModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -67,7 +69,10 @@ export default function RootLayout({
         className={`${inter.variable} ${raleway.variable} ${dancingScript.variable} antialiased overflow-x-hidden`}
       >
         <ToastProvider>
-          {children}
+          <ModalProvider>
+            {children}
+            <RequestModal />
+          </ModalProvider>
         </ToastProvider>
       </body>
     </html>

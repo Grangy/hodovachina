@@ -12,6 +12,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { CityData } from '../data/cities';
+import { useModal } from './ModalProvider';
 
 interface HeroProps {
   cityData?: CityData | null;
@@ -19,6 +20,7 @@ interface HeroProps {
 
 export default function Hero({ cityData }: HeroProps = {}) {
   const shouldReduceMotion = useReducedMotion();
+  const { openModal } = useModal();
 
   const whatsappSanitised = useMemo(() => {
     const fallback = '+79288440555';
@@ -46,7 +48,7 @@ export default function Hero({ cityData }: HeroProps = {}) {
       },
       {
         title: 'Доставка и таможенное оформление',
-        description: '«Белый ввоз», официальные документы и прозрачная логистика без скрытых платежей.'
+        description: '«Белый ввоз», официальные документы и прозрачная логистика без скрытых платежей. Мы не только делаем белый ввоз, серый у нас тоже есть.'
       },
       {
         title: 'Совместные закупки от 5 000 ₽',
@@ -112,9 +114,8 @@ export default function Hero({ cityData }: HeroProps = {}) {
   );
 
   const scrollToForm = useCallback(() => {
-    if (typeof window === 'undefined') return;
-    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
+    openModal();
+  }, [openModal]);
 
   const openWhatsApp = useCallback(() => {
     if (typeof window === 'undefined') return;
@@ -187,23 +188,6 @@ export default function Hero({ cityData }: HeroProps = {}) {
               Написать в WhatsApp
             </button>
           </motion.div>
-
-              <motion.button
-            {...fadeProps(0.2)}
-            type="button"
-                onClick={scrollToForm}
-            className="group inline-flex items-center gap-3 self-center rounded-full border border-slate-300/60 bg-white/60 px-5 py-2 text-sm font-medium text-slate-600 transition hover:border-slate-400 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-400 sm:self-start"
-          >
-            <span
-              className={`flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white ${
-                shouldReduceMotion ? '' : 'transition group-hover:-translate-y-0.5'
-              }`}
-              aria-hidden="true"
-            >
-              ↓
-            </span>
-            Прокрутить к форме
-              </motion.button>
             </motion.div>
 
         <motion.div {...imageMotion} className="relative mx-auto w-full max-w-[260px] sm:max-w-sm lg:max-w-lg">
@@ -270,7 +254,7 @@ export default function Hero({ cityData }: HeroProps = {}) {
             </motion.svg>
 
               <Image
-                src="/images/man.png"
+                src="/images/main1.png"
                 alt="Команда логистов рядом с коробками"
                 fill
                 sizes="(max-width: 640px) 65vw, (max-width: 1024px) 45vw, 480px"

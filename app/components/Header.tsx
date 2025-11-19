@@ -4,21 +4,23 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { useModal } from './ModalProvider';
 
 export default function Header() {
   const pathname = usePathname();
+  const { openModal } = useModal();
 
-  const scrollToForm = () => {
-    const targetIds = pathname === '/training'
-      ? ['training-form', 'contact-form']
-      : ['contact-form', 'training-form'];
-
-    for (const id of targetIds) {
-      const section = document.getElementById(id);
+  const handleRequestClick = () => {
+    if (pathname === '/training') {
+      // На странице обучения скроллим к форме обучения
+      const section = document.getElementById('training-form');
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
-        break;
+      } else {
+        openModal();
       }
+    } else {
+      openModal();
     }
   };
 
@@ -62,7 +64,7 @@ export default function Header() {
               </motion.div>
             </Link>
             <motion.button
-              onClick={scrollToForm}
+              onClick={handleRequestClick}
               className="button-gradient px-4 sm:px-5 md:px-7 py-2 sm:py-2.5 md:py-3 text-xs sm:text-sm md:text-base whitespace-nowrap"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}

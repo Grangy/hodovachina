@@ -13,7 +13,7 @@ interface FAQItem {
 const faqItems: FAQItem[] = [
   {
     question: 'Чем белая доставка отличается от карго?',
-    answer: 'Белая доставка — это официальный ввоз товаров с полным пакетом документов для налоговой и таможни. Все товары оформляются легально, с уплатой всех необходимых пошлин и налогов. Карго — это неофициальная доставка без полного документального оформления.',
+    answer: 'Белая доставка — это официальный ввоз товаров с полным пакетом документов для налоговой и таможни. Все товары оформляются легально, с уплатой всех необходимых пошлин и налогов. Карго — это неофициальная доставка без полного документального оформления. Также мы предоставляем серую доставку — это промежуточный вариант между белой и карго, с частичным документальным оформлением и оптимизацией таможенных платежей.',
   },
   {
     question: 'Почему выгодно заказывать товар в Китае?',
@@ -76,7 +76,7 @@ export default function FAQ() {
         
         <div className="flex justify-center mb-6 sm:mb-8 md:mb-10 lg:mb-12">
           <motion.div
-            className="relative w-full max-w-[200px] sm:max-w-xs h-24 sm:h-32 md:h-40 lg:h-48 xl:h-56"
+            className="relative w-full max-w-[280px] sm:max-w-sm md:max-w-md h-32 sm:h-40 md:h-48 lg:h-64 xl:h-72"
             variants={currentImageVariants}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
@@ -84,7 +84,7 @@ export default function FAQ() {
             viewport={isMobile ? undefined : viewportSettings}
           >
             <Image
-              src="/images/faq.png"
+              src="/images/faaq.png"
               alt="FAQ"
               fill
               className="object-contain"

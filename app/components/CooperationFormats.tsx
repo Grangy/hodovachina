@@ -5,6 +5,7 @@ import { FaBriefcase, FaHandshake } from 'react-icons/fa';
 import { CityData } from '../data/cities';
 import { useState, useEffect } from 'react';
 import { useAnimationVariants, getViewportSettings } from '../utils/animations';
+import { useModal } from './ModalProvider';
 
 interface CooperationFormatsProps {
   cityData?: CityData | null;
@@ -12,6 +13,7 @@ interface CooperationFormatsProps {
 
 export default function CooperationFormats({ cityData }: CooperationFormatsProps = {}) {
   const [isMobile, setIsMobile] = useState(false);
+  const { openModal } = useModal();
   const { fadeInVariants, cardVariants } = useAnimationVariants(false);
   const { fadeInVariants: mobileFadeIn, cardVariants: mobileCardVariants } = useAnimationVariants(true);
   const viewportSettings = getViewportSettings(isMobile);
@@ -24,10 +26,6 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
-
-  const scrollToForm = () => {
-    document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   const currentCardVariants = isMobile ? mobileCardVariants : cardVariants;
 
@@ -77,7 +75,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
               </li>
             </ul>
             <motion.button
-              onClick={scrollToForm}
+              onClick={openModal}
               className="button-gradient w-full px-5 sm:px-6 py-3 text-sm sm:text-base min-h-[44px]"
               whileHover={isMobile ? {} : { scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
