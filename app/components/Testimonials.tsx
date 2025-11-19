@@ -182,7 +182,7 @@ export default function Testimonials({ cityData }: TestimonialsProps = {}) {
           viewport={isMobile ? undefined : viewportSettings}
         >
           {cityData 
-            ? `Нам доверяют клиенты в ${cityData.nameGenitive || cityData.name}`
+            ? `Нам доверяют клиенты в ${cityData.namePrepositional || cityData.name}`
             : 'Нам доверяют сотни клиентов по всей России'}
         </motion.h2>
 
