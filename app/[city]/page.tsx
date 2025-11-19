@@ -21,6 +21,8 @@ export async function generateStaticParams() {
   }));
 }
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3001';
+
 export async function generateMetadata({ params }: CityPageProps): Promise<Metadata> {
   const { city } = await params;
   const cityData = getCityBySlug(city);
@@ -29,16 +31,75 @@ export async function generateMetadata({ params }: CityPageProps): Promise<Metad
     return {
       title: defaultCity.title,
       description: defaultCity.description,
+      keywords: [
+        "оптовые поставки из Китая",
+        "товары из Китая",
+        "доставка из Китая",
+        "растаможка товаров",
+        "выкуп товаров",
+        "производство в Китае",
+        "брендирование товаров",
+        "логистика из Китая",
+        "совместные закупки",
+        "оптовая торговля",
+      ],
+      authors: [{ name: "Hodova China" }],
+      publisher: "Hodova China",
+      robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+      },
+      alternates: {
+        canonical: "/",
+      },
     };
   }
+
+  const keywords = [
+    `оптовые поставки из Китая в ${cityData.name}`,
+    `товары из Китая в ${cityData.name}`,
+    `доставка из Китая в ${cityData.name}`,
+    `растаможка товаров ${cityData.name}`,
+    `выкуп товаров ${cityData.nameGenitive}`,
+    "производство в Китае",
+    "брендирование товаров",
+    "логистика из Китая",
+    "совместные закупки",
+    "оптовая торговля",
+  ];
 
   return {
     title: cityData.title,
     description: cityData.description,
+    keywords,
+    authors: [{ name: "Hodova China" }],
+    publisher: "Hodova China",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
+    alternates: {
+      canonical: `/${city}`,
+    },
     openGraph: {
       title: cityData.title,
       description: cityData.description,
       type: 'website',
+      url: `${BASE_URL}/${city}`,
     },
   };
 }
