@@ -11,7 +11,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { CityData } from '../data/cities';
+import { CityData, defaultCity } from '../data/cities';
 import { useModal } from './ModalProvider';
 
 interface HeroProps {
@@ -23,10 +23,8 @@ export default function Hero({ cityData }: HeroProps = {}) {
   const { openModal } = useModal();
 
   const whatsappSanitised = useMemo(() => {
-    const fallback = '+79288440555';
-    const phone = cityData?.whatsapp ?? fallback;
-    return phone.replace(/[^\d]/g, '');
-  }, [cityData?.whatsapp]);
+    return defaultCity.whatsapp.replace(/[^\d]/g, '');
+  }, []);
 
   const features = useMemo(
     () => [

@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { FaBriefcase, FaHandshake } from 'react-icons/fa';
-import { CityData } from '../data/cities';
+import { CityData, defaultCity } from '../data/cities';
 import { useState, useEffect } from 'react';
 import { useAnimationVariants, getViewportSettings } from '../utils/animations';
 import { useModal } from './ModalProvider';
@@ -30,8 +30,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
   const currentCardVariants = isMobile ? mobileCardVariants : cardVariants;
 
   const openWhatsApp = () => {
-    const whatsappNumber = cityData?.whatsapp || '+79288440555';
-    window.open(`https://wa.me/${whatsappNumber.replace(/[^\d]/g, '')}`, '_blank');
+    window.open(`https://wa.me/${defaultCity.whatsapp.replace(/[^\d]/g, '')}`, '_blank');
   };
 
   return (

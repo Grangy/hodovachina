@@ -39,7 +39,7 @@
 - **Особенности**:
   - Динамическая генерация метаданных (title, description, Open Graph)
   - Персонализированный контент с названием города
-  - Уникальные контакты для каждого города (телефон, WhatsApp, Telegram, Instagram)
+  - Общие контакты для всех городов (телефон, WhatsApp, Telegram, Instagram из `defaultCity`)
   - SEO-оптимизация для каждого города
   - Статическая генерация страниц (SSG) через `generateStaticParams`
 
@@ -69,15 +69,17 @@ interface CityData {
   slug: string;              // URL-слаг (например, "rostov")
   name: string;              // Название города (например, "Ростов-на-Дону")
   nameGenitive: string;      // Название в родительном падеже (для "из Ростова")
-  phone: string;             // Телефон
-  whatsapp: string;          // WhatsApp номер
-  telegram: string;          // Telegram username
-  telegramLink: string;      // Ссылка на Telegram
-  instagram: string;         // Instagram username
+  phone: string;             // Телефон (не используется, оставлено для совместимости)
+  whatsapp: string;          // WhatsApp номер (не используется, оставлено для совместимости)
+  telegram: string;          // Telegram username (не используется, оставлено для совместимости)
+  telegramLink: string;      // Ссылка на Telegram (не используется, оставлено для совместимости)
+  instagram: string;         // Instagram username (не используется, оставлено для совместимости)
   title: string;             // SEO title
   description: string;       // SEO description
 }
 ```
+
+**Примечание:** Контактные данные (phone, whatsapp, telegram, telegramLink, instagram) в структуре `CityData` не используются в компонентах. Все контакты берутся из `defaultCity` и одинаковы для всех городов.
 
 ### 2.2 Добавление нового города
 
@@ -92,16 +94,18 @@ export const cities: Record<string, CityData> = {
     slug: 'newcity',
     name: 'Новый Город',
     nameGenitive: 'Нового Города',
-    phone: '+7 (XXX) XXX-XX-XX',
-    whatsapp: '+7XXXXXXXXXX',
-    telegram: '@hodovachina_newcity',
-    telegramLink: 'https://t.me/hodovachina_newcity',
-    instagram: 'hodovachina_newcity',
+    phone: '', // Не используется, можно оставить пустым
+    whatsapp: '', // Не используется, можно оставить пустым
+    telegram: '', // Не используется, можно оставить пустым
+    telegramLink: '', // Не используется, можно оставить пустым
+    instagram: '', // Не используется, можно оставить пустым
     title: 'Оптовые поставки товаров из Китая в Новый Город под ключ | Доставка',
     description: 'Выкуп, производство, брендирование, логистика и растаможка товаров из Китая в Новый Город. Опт от 100 000 ₽, совместные закупки от 5 000 ₽. Официальная доставка.',
   },
 };
 ```
+
+**Важно:** Контактные данные не нужно заполнять — они берутся из `defaultCity` и одинаковы для всех городов.
 
 3. Страница автоматически сгенерируется при следующей сборке
 4. URL будет доступен по адресу: `/{slug}` (например, `/newcity`)
@@ -113,17 +117,17 @@ export const cities: Record<string, CityData> = {
 - **Hero**: 
   - Заголовок: "Поставки из Китая под ключ в {название города}"
   - Описание с упоминанием города
-  - WhatsApp номер города
+  - WhatsApp номер из `defaultCity` (одинаковый для всех городов)
 
 - **CooperationFormats**: 
-  - Кнопки открывают модальное окно или WhatsApp с номером города
+  - Кнопки открывают модальное окно или WhatsApp с общим номером
 
 - **WorkSteps**: 
   - Шаг 5: "Организуем 'белую' доставку в {название города} и выдаём все документы"
 
 - **ContactForm**: 
   - Заголовок: "Оставьте заявку — и мы рассчитаем вашу поставку из Китая в {название города}"
-  - Контакты (WhatsApp, Telegram, Instagram) с данными города
+  - Контакты (WhatsApp, Telegram, Instagram) из `defaultCity` (одинаковые для всех городов)
 
 - **Footer**: 
   - Блок: "Работаем в {название города}" / "Доставка в ваш город"
@@ -147,7 +151,7 @@ export const cities: Record<string, CityData> = {
   - Анимированная смена услуг (каждые 5 секунд)
   - Персонализированный заголовок с названием города
   - Кнопка "Рассчитать поставку" (открывает модальное окно)
-  - Кнопка "Написать в WhatsApp" (открывает WhatsApp с номером города)
+  - Кнопка "Написать в WhatsApp" (открывает WhatsApp с общим номером из `defaultCity`)
   - 3D-эффект наведения на изображение
   - Анимированные элементы (световое кольцо, орбитальный контур, плашки)
   - Учет предпочтений пользователя (reduced-motion)

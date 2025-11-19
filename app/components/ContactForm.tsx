@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa';
-import { CityData } from '../data/cities';
+import { CityData, defaultCity } from '../data/cities';
 import { useToast } from './ToastProvider';
 
 interface ContactFormProps {
@@ -227,7 +227,7 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <motion.a
-                href={`https://wa.me/${(cityData?.whatsapp || '+79288440555').replace(/[^\d]/g, '')}`}
+                href={`https://wa.me/${defaultCity.whatsapp.replace(/[^\d]/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-700 dark:text-gray-300 blue:text-gray-700 hover:text-purple-primary dark:hover:text-purple-primary blue:hover:text-blue-primary transition-colors"
@@ -235,10 +235,9 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
               >
                 <FaWhatsapp className="text-2xl" />
                 <span className="font-semibold">WhatsApp</span>
-                {cityData && <span className="text-xs text-gray-500">({cityData.name})</span>}
               </motion.a>
               <motion.a
-                href={cityData?.telegramLink || 'https://t.me/hodovachina'}
+                href={defaultCity.telegramLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-700 dark:text-gray-300 blue:text-gray-700 hover:text-purple-primary dark:hover:text-purple-primary blue:hover:text-blue-primary transition-colors"
@@ -246,10 +245,9 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
               >
                 <FaTelegram className="text-2xl" />
                 <span className="font-semibold">Telegram</span>
-                {cityData && <span className="text-xs text-gray-500">({cityData.name})</span>}
               </motion.a>
               <motion.a
-                href={`https://instagram.com/${cityData?.instagram || 'hodovachina'}`}
+                href={`https://instagram.com/${defaultCity.instagram}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-700 dark:text-gray-300 blue:text-gray-700 hover:text-purple-primary dark:hover:text-purple-primary blue:hover:text-blue-primary transition-colors"
@@ -257,7 +255,6 @@ export default function ContactForm({ cityData }: ContactFormProps = {}) {
               >
                 <FaInstagram className="text-2xl" />
                 <span className="font-semibold">Instagram</span>
-                {cityData && <span className="text-xs text-gray-500">({cityData.name})</span>}
               </motion.a>
             </div>
           </div>
