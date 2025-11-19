@@ -87,6 +87,9 @@ export const metadata: Metadata = {
     "msapplication-TileColor": "#0f172a",
     "msapplication-config": "/browserconfig.xml",
   },
+  verification: {
+    google: "ABu6buNsU68Cz_B8YSLmG6TxKS6V1699Y1xoNaKkx9I",
+  },
 };
 
 export default function RootLayout({
