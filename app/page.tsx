@@ -2,6 +2,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import Advantages from './components/Advantages';
 import CooperationFormats from './components/CooperationFormats';
+import Pricing from './components/Pricing';
 import WorkSteps from './components/WorkSteps';
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
@@ -208,6 +209,7 @@ export default function Home() {
           <Hero />
           <Advantages />
           <CooperationFormats />
+          <Pricing />
           <WorkSteps />
           <Testimonials />
           <FAQ />
