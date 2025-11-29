@@ -26,10 +26,10 @@ export default function Pricing() {
   const currentFadeIn = isMobile ? mobileFadeIn : fadeInVariants;
 
   const commissionTiers = [
-    { range: 'До 300 000 ₽', percent: '10%', color: 'from-purple-500 to-purple-600' },
-    { range: 'От 300 000 ₽ до 1 000 000 ₽', percent: '7%', color: 'from-blue-500 to-blue-600' },
-    { range: 'От 1 000 000 ₽ до 1 500 000 ₽', percent: '5%', color: 'from-green-500 to-green-600' },
-    { range: 'Свыше 1 500 000 ₽', percent: 'по договорённости', color: 'from-orange-500 to-orange-600' },
+    { range: 'До 300 000 ₽', percent: '10%' },
+    { range: 'От 300 000 ₽ до 1 000 000 ₽', percent: '7%' },
+    { range: 'От 1 000 000 ₽ до 1 500 000 ₽', percent: '5%' },
+    { range: 'Свыше 1 500 000 ₽', percent: 'по договорённости' },
   ];
 
   const additionalServices = [
@@ -141,7 +141,7 @@ export default function Pricing() {
                     <span className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-200 monochrome:text-gray-dark blue:text-gray-700 font-medium flex-1">
                       {tier.range}
                     </span>
-                    <span className={`text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r ${tier.color} bg-clip-text text-transparent`}>
+                    <span className="text-lg sm:text-xl md:text-2xl font-bold text-purple-primary dark:text-purple-400 monochrome:text-mono-primary blue:text-blue-primary">
                       {tier.percent}
                     </span>
                   </motion.div>
