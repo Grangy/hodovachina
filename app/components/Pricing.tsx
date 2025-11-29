@@ -93,18 +93,18 @@ export default function Pricing() {
           whileInView={isMobile ? undefined : "visible"}
           viewport={isMobile ? undefined : viewportSettings}
         >
-          <div className="bg-gradient-to-r from-purple-500 to-purple-600 dark:from-purple-600 dark:to-purple-700 monochrome:from-mono-primary monochrome:to-mono-dark blue:from-blue-primary blue:to-blue-600 rounded-2xl p-6 sm:p-8 md:p-10 shadow-xl text-white">
+          <div className="bg-purple-primary dark:bg-purple-600 monochrome:bg-mono-primary blue:bg-blue-primary rounded-2xl p-6 sm:p-8 md:p-10 shadow-xl">
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
               <div className="flex-shrink-0">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-                  <FaHandshake className="text-2xl sm:text-3xl" />
+                  <FaHandshake className="text-2xl sm:text-3xl text-white" />
                 </div>
               </div>
               <div className="flex-1 text-center sm:text-left">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-white">
                   МИНИМАЛЬНЫЙ ЗАКАЗ 30 000 ₽
                 </h3>
-                <p className="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed">
+                <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
                   До 30 000 ₽ есть услуга «совместные закупки» (от 5 000 ₽)
                 </p>
               </div>
@@ -260,4 +260,5 @@ export default function Pricing() {
     </section>
   );
 }
+
 

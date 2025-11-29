@@ -50,7 +50,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
           {/* Крупный опт */}
           <motion.div
-            className="card-highlight bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="card-highlight bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors flex flex-col h-full"
             variants={currentCardVariants(0)}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
@@ -63,7 +63,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors leading-tight">
               Крупный опт от 100 000 ₽
             </h3>
-            <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 text-left">
+            <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 text-left flex-grow">
               <li className="flex items-start">
                 <span className="mr-2 flex-shrink-0">—</span>
                 <span>Индивидуальный подбор и закупка напрямую с фабрик.</span>
@@ -75,7 +75,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             </ul>
             <motion.button
               onClick={openModal}
-              className="button-gradient w-full px-5 sm:px-6 py-3 text-sm sm:text-base min-h-[44px]"
+              className="button-gradient w-full px-5 sm:px-6 py-3 text-sm sm:text-base min-h-[44px] mt-auto"
               whileHover={isMobile ? {} : { scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -85,7 +85,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
 
           {/* Совместные закупки */}
           <motion.div
-            className="card-highlight bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors"
+            className="card-highlight bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors flex flex-col h-full"
             variants={currentCardVariants(1)}
             initial="hidden"
             animate={isMobile ? "visible" : undefined}
@@ -98,7 +98,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors leading-tight">
               Совместные закупки от 5 000 ₽
             </h3>
-            <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 text-left">
+            <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 text-left flex-grow">
               <li className="flex items-start">
                 <span className="mr-2 flex-shrink-0">—</span>
                 <span>Для небольших заказов.</span>
@@ -110,7 +110,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             </ul>
             <motion.button
               onClick={openWhatsApp}
-              className="button-gradient w-full px-5 sm:px-6 py-3 text-sm sm:text-base min-h-[44px]"
+              className="button-gradient w-full px-5 sm:px-6 py-3 text-sm sm:text-base min-h-[44px] mt-auto"
               whileHover={isMobile ? {} : { scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
