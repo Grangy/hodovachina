@@ -171,34 +171,26 @@ export default function Pricing() {
                   ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
                 </h3>
               </div>
-              <div className="space-y-4 sm:space-y-5">
+              <div className="space-y-3 sm:space-y-4">
                 {additionalServices.map((service, index) => {
-                  const IconComponent = service.icon;
                   return (
-                    <motion.div
+                    <div
                       key={index}
-                      className="p-4 sm:p-5 rounded-xl bg-gradient-to-br from-gray-50 to-white dark:from-gray-700 dark:to-gray-800 monochrome:from-gray-100 monochrome:to-white blue:from-blue-50 blue:to-white border border-gray-200 dark:border-gray-600 hover:border-purple-300 dark:hover:border-purple-500 hover:shadow-md transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300 }}
+                      className="pb-3 sm:pb-4 border-b border-gray-200 dark:border-gray-600 last:border-0 last:pb-0"
                     >
-                      <div className="flex items-start gap-3 sm:gap-4 mb-3">
-                        <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 monochrome:from-mono-primary monochrome:to-mono-dark blue:from-blue-primary blue:to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0 shadow-sm">
-                          <IconComponent className="text-lg sm:text-xl text-white" />
-                        </div>
-                        <h4 className="text-base sm:text-lg md:text-xl font-semibold text-gray-900 dark:text-white monochrome:text-gray-dark blue:text-gray-dark flex-1 pt-1">
-                          {service.title}
-                        </h4>
-                      </div>
-                      <div className="ml-0 sm:ml-14 space-y-2">
+                      <h4 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 dark:text-white monochrome:text-gray-dark blue:text-gray-dark mb-2 sm:mb-3">
+                        {service.title}
+                      </h4>
+                      <div className="space-y-1.5 sm:space-y-2">
                         {service.options.map((option, optIndex) => (
                           <div key={optIndex} className="flex items-start gap-2">
-                            <FaCheck className="text-purple-500 dark:text-purple-400 monochrome:text-mono-primary blue:text-blue-primary mt-1 flex-shrink-0 text-sm" />
+                            <span className="text-purple-primary dark:text-purple-400 monochrome:text-mono-primary blue:text-blue-primary mt-0.5 flex-shrink-0">•</span>
                             <div>
-                              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 monochrome:text-gray-dark blue:text-gray-700 font-medium">
+                              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-200 monochrome:text-gray-dark blue:text-gray-700">
                                 {option.text}
                               </p>
                               {option.note && (
-                                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 monochrome:text-mono-dark blue:text-gray-500 mt-1 italic">
+                                <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 monochrome:text-mono-dark blue:text-gray-500 mt-0.5">
                                   {option.note}
                                 </p>
                               )}
@@ -206,7 +198,7 @@ export default function Pricing() {
                           </div>
                         ))}
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </div>
