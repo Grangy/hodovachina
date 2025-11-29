@@ -47,7 +47,7 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
           Выберите формат, который подходит вашему бизнесу
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 md:gap-8 items-stretch">
           {/* Крупный опт */}
           <motion.div
             className="card-highlight bg-white dark:bg-gray-900 monochrome:bg-white blue:bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl md:rounded-2xl shadow-lg dark:border dark:border-gray-700 transition-colors flex flex-col h-full"
@@ -57,10 +57,10 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             whileInView={isMobile ? undefined : "visible"}
             viewport={isMobile ? undefined : viewportSettings}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 text-purple-primary dark:text-purple-primary monochrome:text-mono-primary blue:text-blue-primary flex justify-center md:justify-start">
+            <div className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 text-purple-primary dark:text-purple-primary monochrome:text-mono-primary blue:text-blue-primary flex justify-center md:justify-start min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4rem] items-center">
               <FaBriefcase />
             </div>
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors leading-tight">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors leading-tight min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4rem] flex items-center">
               Крупный опт от 100 000 ₽
             </h3>
             <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 text-left flex-grow">
@@ -92,10 +92,10 @@ export default function CooperationFormats({ cityData }: CooperationFormatsProps
             whileInView={isMobile ? undefined : "visible"}
             viewport={isMobile ? undefined : viewportSettings}
           >
-            <div className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 text-purple-primary dark:text-purple-primary monochrome:text-mono-primary blue:text-blue-primary flex justify-center md:justify-start">
+            <div className="text-3xl sm:text-4xl md:text-5xl mb-4 sm:mb-5 text-purple-primary dark:text-purple-primary monochrome:text-mono-primary blue:text-blue-primary flex justify-center md:justify-start min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4rem] items-center">
               <FaHandshake />
             </div>
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors leading-tight">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 sm:mb-5 text-center md:text-left text-gray-dark dark:text-white monochrome:text-gray-dark blue:text-gray-dark transition-colors leading-tight min-h-[3rem] sm:min-h-[3.5rem] md:min-h-[4rem] flex items-center">
               Совместные закупки от 5 000 ₽
             </h3>
             <ul className="space-y-2.5 sm:space-y-3 mb-6 sm:mb-7 md:mb-8 text-sm sm:text-base text-gray-600 dark:text-gray-300 monochrome:text-mono-dark blue:text-gray-600 text-left flex-grow">
