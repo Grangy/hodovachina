@@ -141,7 +141,11 @@ export default function Pricing() {
                     <span className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-200 monochrome:text-gray-dark blue:text-gray-700 font-medium flex-1">
                       {tier.range}
                     </span>
-                    <span className="text-lg sm:text-xl md:text-2xl font-bold text-purple-primary dark:text-purple-400 monochrome:text-mono-primary blue:text-blue-primary">
+                    <span className={`font-bold text-purple-primary dark:text-purple-400 monochrome:text-mono-primary blue:text-blue-primary ${
+                      tier.percent === 'по договорённости' 
+                        ? 'text-sm sm:text-base md:text-lg' 
+                        : 'text-lg sm:text-xl md:text-2xl'
+                    }`}>
                       {tier.percent}
                     </span>
                   </motion.div>
